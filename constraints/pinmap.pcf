@@ -1,0 +1,18 @@
+# clock
+set_io --warn-no-port sys_clk  J3
+# leds
+set_io --warn-no-port led[0]   B5
+set_io --warn-no-port led[1]   B4
+set_io --warn-no-port led[2]   A2
+set_io --warn-no-port led[3]   A1
+set_io --warn-no-port led[4]   C5
+set_io --warn-no-port led[5]   C4
+set_io --warn-no-port led[6]   B3
+set_io --warn-no-port led[7]   C3
+# io
+set_io --warn-no-port enable   F1
+set_io --warn-no-port data_out G1
+# spi
+set_io --warn-no-port spi_clk  B2
+set_io --warn-no-port mosi     C2
+set_io --warn-no-port miso     D2
