@@ -12,6 +12,7 @@ entity top is
         spi_clk  : in std_logic;
         mosi     : in std_logic;
         miso     : in std_logic;
+        ss       : in std_logic;
         data_out : out std_logic;
         led      : out std_logic_vector(7 downto 0)
     );
