@@ -1,2 +1,2 @@
 # About
-Drivers WS2812B addressable rgb leds using data read from SPI
+Drives WS2812B addressable rgb leds using data read from SPI
