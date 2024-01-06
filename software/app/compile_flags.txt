@@ -1,0 +1,3 @@
+-L../libopencm3/lib
+-llibopencm3
+-I../libopencm3/include
