@@ -10,9 +10,9 @@ entity top is
         sys_clk  : in std_logic;
         enable   : in std_logic;
         spi_clk  : in std_logic;
-        mosi     : in std_logic;
-        miso     : in std_logic;
-        ss       : in std_logic;
+        poci     : in std_logic;
+        pico     : in std_logic;
+        cs       : in std_logic;
         data_out : out std_logic;
         led      : out std_logic_vector(7 downto 0)
     );
