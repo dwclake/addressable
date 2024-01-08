@@ -14,6 +14,5 @@ set_io --warn-no-port enable   D1
 set_io --warn-no-port data_out D2
 # spi
 set_io --warn-no-port spi_clk  B1
-set_io --warn-no-port poci     C1
 set_io --warn-no-port pico     C2
 set_io --warn-no-port cs       B2
