@@ -7,11 +7,11 @@ use ieee.numeric_std.all;
 
 entity top is
     port (
-        sys_clk  : in std_logic;
-        enable   : in std_logic;
-        spi_clk  : in std_logic;
-        pico     : in std_logic;
-        cs       : in std_logic;
+        sys_clk  : in  std_logic;
+        enable   : in  std_logic;
+        spi_clk  : in  std_logic;
+        pico     : in  std_logic;
+        cs       : in  std_logic;
         data_out : out std_logic;
         led      : out std_logic_vector(7 downto 0)
     );

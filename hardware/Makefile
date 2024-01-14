@@ -3,9 +3,21 @@ PROJ      = addressable
 BUILD     = ./build
 DEVICE    = 8k
 FOOTPRINT = ct256
+OS        := $(shell uname -s)
 
 # Files
-FILES = src/top.vhdl
+VHDL_FILES    = src/vhdl/top.vhdl
+VERILOG_FILES = src/verilog/top.v
+
+# Synthesis commands
+VHDL_SYNTHESIS    := yosys -m ghdl -p "ghdl $(VHDL_FILES) -e top; synth_ice40 -blif $(BUILD)/$(PROJ).blif -json $(BUILD)/$(PROJ).json"
+VERILOG_SYNTHESIS := yosys -p "synth_ice40 -top top -blif $(BUILD)/$(PROJ).blif -json $(BUILD)/$(PROJ).json" $(VERILOG_FILES)
+
+ifeq ($(OS), Linux)
+	synthesis := $(VHDL_SYNTHESIS)
+else
+	synthesis := $(VERILOG_SYNTHESIS)
+endif
 
 .PHONY: all clean burn timing
 
@@ -13,7 +25,7 @@ all $(BUILD)/$(PROJ).asc $(BUILD)/$(PROJ).bin:
 	# if build folder doesn't exist, create it
 	mkdir -p $(BUILD)
 	# synthesize using Yosys
-	yosys -m ghdl -p "ghdl $(FILES) -e top; synth_ice40 -blif $(BUILD)/$(PROJ).blif -json $(BUILD)/$(PROJ).json"
+	$(synthesis)
 	# Place and route using nextpnr
 	nextpnr-ice40 --hx$(DEVICE) --json build/$(PROJ).json --pcf constraints/pinmap.pcf --asc build/$(PROJ).asc
 	# Convert to bitstream using IcePack
