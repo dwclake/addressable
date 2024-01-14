@@ -1,10 +1,10 @@
 # Project setup
-PROJ      = addressable
-BUILD     = .build
+PROJ        = addressable
+BUILD       = .build
 CONSTRAINTS = constraints
-DEVICE    = 8k
-FOOTPRINT = ct256
-OS        := $(shell uname -s)
+DEVICE      = 8k
+FOOTPRINT   = ct256
+OS         := $(shell uname -s)
 
 # Files
 VHDL_FILES    = src/vhdl/top.vhdl
