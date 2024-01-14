@@ -27,7 +27,7 @@ all $(BUILD)/$(PROJ).asc $(BUILD)/$(PROJ).bin:
 	# synthesize using Yosys
 	$(synthesis)
 	# Place and route using nextpnr
-	nextpnr-ice40 --hx$(DEVICE) --json build/$(PROJ).json --pcf constraints/pinmap.pcf --asc build/$(PROJ).asc
+	nextpnr-ice40 --hx$(DEVICE) --package ct256 --json build/$(PROJ).json --pcf constraints/pinmap.pcf --asc build/$(PROJ).asc
 	# Convert to bitstream using IcePack
 	icepack $(BUILD)/$(PROJ).asc $(BUILD)/$(PROJ).bin
 
