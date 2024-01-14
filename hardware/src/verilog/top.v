@@ -3,7 +3,7 @@
  */
 
 module top (
-    input  sys_clk,
+    input  clk_12,
     input  enable,
     input  spi_clk,
     input  pico,
@@ -16,7 +16,7 @@ module top (
     assign led = counter[25:18];
 
     /* Increment counter each clock tick */
-    always @ (posedge sys_clk) begin
+    always @ (posedge clk_12) begin
         counter <= counter + 1;
     end
 endmodule

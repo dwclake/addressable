@@ -1,5 +1,5 @@
 # clock
-set_io --warn-no-port sys_clk  J3
+set_io --warn-no-port clk_12  J3
 # leds
 set_io --warn-no-port led[0]   B5
 set_io --warn-no-port led[1]   B4

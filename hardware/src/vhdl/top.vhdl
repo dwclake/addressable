@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 
 entity top is
     port (
-        sys_clk  : in  std_logic;
+        clk_12   : in  std_logic;
         enable   : in  std_logic;
         spi_clk  : in  std_logic;
         pico     : in  std_logic;
@@ -20,9 +20,9 @@ end top;
 architecture rtl of top is
     signal counter : unsigned(31 downto 0);
 begin
-    count : process (sys_clk) is 
+    count : process (clk_12) is 
     begin
-        if rising_edge(sys_clk) then
+        if rising_edge(clk_12) then
             counter <= counter + 1;
         end if;
     end process count;
